@@ -8,13 +8,21 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputMain: ''
+      inputMain: '',
+      users: []
     };
     this.onInputChangeHandler = this.onInputChangeHandler.bind(this);
   }
+
+   async componentDidMount() {
+    const response = await fetch('http://localhost:4200/users');
+    const data = await response.json();
+    this.setState({
+      users: data
+    })
+  }
   
   onInputChangeHandler(e) {
-    console.log('works', e.target.value);
     this.setState({
       inputMain: e.target.value
     })
@@ -26,6 +34,7 @@ class App extends React.Component {
         <Header />
         <Main onInputChange={this.onInputChangeHandler}
         inputOutputInMain={this.state.inputMain}
+        usersList={this.state.users}
         />
         <Footer />
     </div>
