@@ -13,5 +13,5 @@ app.get('/users', (req, res) => {
 });
 
 app.listen(4200, () => {
-console.log('Server has been started at port 4200');
+console.log('Server has been started on port 4200');
 });

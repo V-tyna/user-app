@@ -19,13 +19,13 @@ class App extends React.Component {
     const data = await response.json();
     this.setState({
       users: data
-    })
+    });
   }
   
   onInputChangeHandler(e) {
     this.setState({
       inputMain: e.target.value
-    })
+    });
   }
 
   render() {
