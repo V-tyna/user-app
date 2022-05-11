@@ -30,14 +30,14 @@ class App extends React.Component {
 
   render() {
      return (
-    <div className="App">
-        <Header />
-        <Main onInputChange={this.onInputChangeHandler}
-        inputOutputInMain={this.state.inputMain}
-        usersList={this.state.users}
-        />
-        <Footer />
-    </div>
+        <div className="App">
+            <Header />
+            <Main onInputChange={this.onInputChangeHandler}
+            inputOutputInMain={this.state.inputMain}
+            usersList={this.state.users}
+            />
+            <Footer />
+        </div>
   );
   }
 }
