@@ -1,45 +1,16 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import Header from './Components/Header/Header';
-import Main from './Components/Main/Main';
-import Footer from './Components/Footer/Footer';
+import Home from './Components/Home/Home';
+import About from './Components/About/About';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      inputMain: '',
-      users: []
-    };
-    this.onInputChangeHandler = this.onInputChangeHandler.bind(this);
-  }
-
-   async componentDidMount() {
-    const response = await fetch('http://localhost:4200/users');
-    const data = await response.json();
-    this.setState({
-      users: data
-    });
-  }
-  
-  onInputChangeHandler(e) {
-    this.setState({
-      inputMain: e.target.value
-    });
-  }
-
-  render() {
+const App = () => {
      return (
-        <div className="App">
-            <Header />
-            <Main onInputChange={this.onInputChangeHandler}
-            inputOutputInMain={this.state.inputMain}
-            usersList={this.state.users}
-            />
-            <Footer />
-        </div>
+      <Routes>
+      <Route path="/" element={<Home />} /> 
+      <Route path="/about" element={<About />} /> 
+    </Routes>
   );
-  }
 }
 
 export default App;
